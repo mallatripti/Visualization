@@ -49,7 +49,7 @@ path{
 <?php
 
 ini_set('display_errors','off');
-  $string= file_get_contents("tripti1.json") or die("error");
+  $string= file_get_contents("pop1.json") or die("error");
   $json_a = json_decode($string,true);
   $district_array=array_column($json_a,'district');
   $population_array=array_column($json_a,'population');
@@ -153,12 +153,5 @@ d3.json("nepal-topo.json", function(error, nepal) {
 });
 
 
-/*var zoom = d3.behavior.zoom()
-	.on("zoom", function(){
-		g.attr("transform","translate("+
-			d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-		g.selectAll("path")
-			.attr("d", path.projection(projection));
 
-	});*/
 </script>
