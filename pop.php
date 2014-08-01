@@ -1,4 +1,4 @@
-<?php include 'first.php';?>
+<?php include 'nav.html';?>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <html>
 	<style>
@@ -22,7 +22,7 @@
 <body>
 <script>
 
-var margin = {top:100, right: 1, bottom:100, left:150};
+var margin = {top:100, right: 100, bottom:100, left:150};
 	var w = 1200-margin.left - margin.right;
 	var h = 1200-margin.top - margin.bottom;
 
@@ -39,11 +39,12 @@ var margin = {top:100, right: 1, bottom:100, left:150};
         .rangeRoundBands([0,h], .1);
 
   	var x = d3.scale.linear()
-        .range([0,w]);
+              .range([0,w]);
 
 	var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("top");
+        .orient("top")
+        .tickFormat(d3.format('s'));
 
   	var yAxis = d3.svg.axis()
           .scale(y)

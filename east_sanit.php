@@ -1,4 +1,4 @@
-<?php include 'first.php';?>
+<?php include 'nav.html';?>
 <html>
 	<style>
 
@@ -71,7 +71,7 @@ d3.json("eastern_sanit1.json", function(error, data){
     	})
     	.attr("height", y.rangeBand())
     	.attr("width", function(d){return x(d.sanitation); })
-    	.attr("fill", "blue")
+    	.attr("fill", "steelblue")
     	
         .on("mouseover", function() {
         	d3.select(this)
@@ -81,7 +81,7 @@ d3.json("eastern_sanit1.json", function(error, data){
         	d3.select(this)
         		.transition()
         		.duration(150)
-        		.attr("fill", "teal");
+        		.attr("fill", "steelblue");
 						})
              .append("title")
         .text(function(d) {
@@ -102,7 +102,7 @@ d3.json("eastern_sanit1.json", function(error, data){
         .attr("y",-23)
         .attr("x", (w/2))
         .style("text-anchor","end")
-        .text("Sanitation");
+        .text("Sanitation(%)");
 
 
     svg.append("g")

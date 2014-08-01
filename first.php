@@ -14,7 +14,7 @@
 
 					<li><a href='pop.php'>Population</a>
 					<ul> 
-						<li><a href="cen_pop.php">Central</a></li>
+						<li><a href="Central/cen_pop.php">Central</a></li>
 						<li><a href="east_pop.php">Eastern</a></li>
 						<li><a href="west_pop.php">Western</a></li>
 						<li><a href="mid_pop.php">Mid-Western</a></li>

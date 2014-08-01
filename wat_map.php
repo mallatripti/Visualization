@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "nav.html"; ?>
 <meta charset="utf-8">
 <style>
 

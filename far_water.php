@@ -1,4 +1,4 @@
-<?php include 'first.php';?>
+<?php include 'nav.html';?>
 <html>
 	<style>
 

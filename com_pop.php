@@ -1,8 +1,8 @@
-<?php include"first.php";?>
+<?php include"nav.html";?>
 <?php 
 
 ini_set('display_errors','off');
-  $string= file_get_contents("tripti1.json") or die("error");
+  $string= file_get_contents("pop1.json") or die("error");
   $json_a = json_decode($string,true);
   $district_array=array_column($json_a,'district');
   $population_array=array_column($json_a,'population');
