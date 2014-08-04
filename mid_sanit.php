@@ -13,12 +13,20 @@
 			font-family: sans-serif;
 			font-size: 11px;
 		}
+        p{
+            padding-left: 150px;
+            font-style: normal;
+            font-size: 20px;
+            text-align: left;
+        }
         
 	</style>
 	<script src="d3.min.js" charset="utf-8">
 	</script>
 
 <body>
+
+<p><strong>Districts Vs. Sanitation for Mid-Western Development Region</strong></p>
 <script>
 
 var margin = {top:10, right: 10, bottom:100, left:150};
@@ -71,17 +79,17 @@ d3.json("midwestern_sanit1.json", function(error, data){
     	})
     	.attr("height", y.rangeBand())
     	.attr("width", function(d){return x(d.sanitation); })
-    	.attr("fill", "blue")
+    	.attr("fill", "MediumAquaMarine")
     	
         .on("mouseover", function() {
         	d3.select(this)
-          	 .attr("fill", "aqua");
+          	 .attr("fill", "DarkSlateGray");
 					})
         .on("mouseout", function(d) {
         	d3.select(this)
         		.transition()
         		.duration(150)
-        		.attr("fill", "teal");
+        		.attr("fill", "MediumAquaMarine");
 						})
              .append("title")
         .text(function(d) {
@@ -102,7 +110,7 @@ d3.json("midwestern_sanit1.json", function(error, data){
         .attr("y",-23)
         .attr("x", (w/2))
         .style("text-anchor","end")
-        .text("Sanitation");
+        .text("Sanitation(%)");
 
 
     svg.append("g")

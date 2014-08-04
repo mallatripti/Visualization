@@ -26,7 +26,7 @@ sort($district_array);
 
 <html>
 
-
+<div id="mid" style="margin:auto; padding-left:400px;">
 <form action='<?php echo $_SERVER['PHP_SELF'];?>' method="post" >
       District 1: <select name="district_name1">
         <?php
@@ -44,6 +44,7 @@ sort($district_array);
       </select>
       <input name="submit" type="submit"/>
     </form>
+    </div>
 </html>
 
 

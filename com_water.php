@@ -21,7 +21,7 @@ sort($district_array);
 
 
 ?>
-<div id="hol" style="margin:auto; padding-left:400px; background-color:#98FB98;">
+<div id="mid" style="margin:auto; padding-left:400px;">
 <html>
 	<body>
 		<form action = '<?php echo $_SERVER['PHP_SELF'];?>' method="post">
@@ -111,7 +111,7 @@ fclose($file);
 
 </style>
 
-<div id="com" style="margin=auto;padding-left:400px;padding-bottom:10px;background-color:#98FB98;">
+<div id="com" style="margin=auto;padding-left:400px;padding-bottom:10px;">
 <script src="d3.min.js"></script>
 <?php if(isset($_POST['submit'])):?>
 <script>
