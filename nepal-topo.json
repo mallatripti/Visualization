@@ -164,8 +164,8 @@
 "properties":{"name":"Tanahu"}},{"type":"Polygon",
 "arcs":
 [[-110,127,128,129,-111,-99]],
-"id":"Arghakhanchi",
-"properties":{"name":"Arghakhanchi"}},{"type":"Polygon",
+"id":"Arghakhachi",
+"properties":{"name":"Arghakhachi"}},{"type":"Polygon",
 "arcs":
 [[130,131,132,133,134,135,-124]],
 "id":"Solukhumbu",
@@ -196,8 +196,8 @@
 "properties":{"name":"Nawalparasi"}},{"type":"Polygon",
 "arcs":
 [[-130,153,154,-112]],
-"id":"Kapilbastu",
-"properties":{"name":"Kapilbastu"}},{"type":"Polygon",
+"id":"Kapivastu",
+"properties":{"name":"Kapivastu"}},{"type":"Polygon",
 "arcs":
 [[155,156,157,-121,-136]],
 "id":"Ramechhap",
@@ -228,8 +228,8 @@
 "properties":{"name":"Lalitpur"}},{"type":"Polygon",
 "arcs":
 [[-135,173,174,175,-156]],
-"id":"Okhaldhunga",
-"properties":{"name":"Okhaldhunga"}},{"type":"Polygon",
+"id":"Okhaldhungha",
+"properties":{"name":"Okhaldhungha"}},{"type":"Polygon",
 "arcs":
 [[-140,176,177,178,-133]],
 "id":"Bhojpur",
@@ -284,8 +284,8 @@
 "properties":{"name":"Ilam"}},{"type":"Polygon",
 "arcs":
 [[211,212,-207,-184]],
-"id":"Dhanusa",
-"properties":{"name":"Dhanusa"}},{"type":"Polygon",
+"id":"Dhanusha",
+"properties":{"name":"Dhanusha"}},{"type":"Polygon",
 "arcs":
 [[-183,-206,213,214,-212]],
 "id":"Siraha",

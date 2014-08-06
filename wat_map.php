@@ -24,11 +24,34 @@ path{
 .legend{
   font-size: 12px;
 }
+#wrapper{
+  width:900px;
+  margin-top:80px;
+ 
+
+}
+
+#map{
+  width: 700px;
+  padding-left:0px;
+  float:right;
+}
+p{
+  text-align: center;
+  font-size: 20px;
+}
 </style>
 <body>
+<p><strong>Districts Vs Water Supply Coverage(%)</strong></p>
+<div id="wrapper">
+
+  <div id="map"></div>
+
+</div>
+
 
 <?php
-
+//php code to take data from another json file and store in array
 ini_set('display_errors','off');
 
   $string = file_get_contents("water1.json") or die ("Error opening file");
@@ -54,7 +77,6 @@ $dis_dummy = array();
 <script>
 
 var file_j = <?php echo $string;?>
-//alert(file_j[0].district);
 len=file_j.length;
 var color= ["#238443","#78c679","#c2e699","#ffffcc"];
 var label =[">90",">60",">30",">0"];
@@ -89,7 +111,7 @@ var path = d3.geo.path()
 
  
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -111,13 +133,13 @@ d3.json("nepal-topo.json", function(error, nepal) {
             	var x=water(d.id);
                 return (d.id + "\n" + "Water: " +x) ;
             });
-          //  var1==>d.id
-            //console.log.status
+          
+
   var legend = svg.selectAll("g.legend")
     .data(color)
     .enter().append("g")
     .attr("class","legend");
-    //.attr("width",);
+    
 
   legend.append("rect")
     .attr("width",18)
@@ -136,12 +158,5 @@ d3.json("nepal-topo.json", function(error, nepal) {
 });
 
 
-/*var zoom = d3.behavior.zoom()
-	.on("zoom", function(){
-		g.attr("transform","translate("+
-			d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-		g.selectAll("path")
-			.attr("d", path.projection(projection));
 
-	});*/
 </script>
