@@ -51,7 +51,7 @@ p{
 
 
 <?php
-//php code to take data from another json file and store in array
+
 ini_set('display_errors','off');
 
   $string = file_get_contents("water1.json") or die ("Error opening file");
@@ -77,6 +77,7 @@ $dis_dummy = array();
 <script>
 
 var file_j = <?php echo $string;?>
+//alert(file_j[0].district);
 len=file_j.length;
 var color= ["#238443","#78c679","#c2e699","#ffffcc"];
 var label =[">90",">60",">30",">0"];

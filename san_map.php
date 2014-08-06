@@ -50,7 +50,6 @@ p{
 
 <?php
 
-//php code to take data from another json file and store in array
 ini_set('display_errors','off');
 
   $string = file_get_contents("sanitation1.json") or die ("Error opening file");
@@ -71,21 +70,21 @@ $dis_dummy = array();
     
 
 ?>
-
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
 
 var file_j = <?php echo $string;?>
+//alert(file_j[0].district);
 len=file_j.length;
 var color= ["#238443","#78c679","#c2e699","#ffffcc"];
 var label =[">90",">60",">30",">0"];
 var col=color.len;
 
 function getDistrictClass(sanitation){
-  return sanitation > 80?'dark_green':
-          sanitation > 40? 'green':
-          sanitation > 20 ? 'light_green': 'cream';
+  return sanitation > 90?'dark_green':
+          sanitation > 60? 'green':
+          sanitation > 30 ? 'light_green': 'cream';
            
 }
 function sanit(dist){
@@ -133,13 +132,13 @@ d3.json("nepal-topo.json", function(error, nepal) {
             	var x=sanit(d.id);
                 return (d.id + "\n" + "Sanitation: " +x) ;
             });
-         
-
+          //  var1==>d.id
+            //console.log.status
   var legend = svg.selectAll("g.legend")
     .data(color)
     .enter().append("g")
     .attr("class","legend");
-    
+    //.attr("width",);
 
   legend.append("rect")
     .attr("width",18)

@@ -51,7 +51,7 @@ p{
 </div>
 
 <?php
-//php code to take data from another json file and store in array
+
 ini_set('display_errors','off');
   $string= file_get_contents("pop1.json") or die("error");
   $json_a = json_decode($string,true);
@@ -76,6 +76,7 @@ $dis_dummy=array();
 <script>
 
 var file_j = <?php echo $string;?>
+//alert(file_j[0].district);
 len=file_j.length;
 var color= ["#238443","#78c679","#c2e699","#ffffcc"];
 var label =[">500000",">200000",">0","0"];
@@ -131,12 +132,13 @@ d3.json("nepal-topo.json", function(error, nepal) {
             	var x=pop(d.id);
                 return (d.id + "\n" + "Population: " +x) ;
             });
-          
+          //  var1==>d.id
+            //console.log.status
   var legend = svg.selectAll("g.legend")
     .data(color)
     .enter().append("g")
     .attr("class","legend");
-    
+    //.attr("width",);
 
   legend.append("rect")
     .attr("width",18)
