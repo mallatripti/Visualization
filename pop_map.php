@@ -53,7 +53,7 @@ p{
 <?php
 
 ini_set('display_errors','off');
-  $string= file_get_contents("pop1.json") or die("error");
+  $string= file_get_contents("json/pop1.json") or die("error");
   $json_a = json_decode($string,true);
   $district_array=array_column($json_a,'district');
   $population_array=array_column($json_a,'population');
@@ -120,7 +120,7 @@ var svg = d3.select("#map").append("svg")
   
 
 
-d3.json("nepal-topo.json", function(error, nepal) {
+d3.json("json/nepal-topo.json", function(error, nepal) {
  	g.selectAll("path")
  		.data(topojson.feature(nepal, nepal.objects.nepal).features)
  		.enter()

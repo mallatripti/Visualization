@@ -2,7 +2,7 @@
 <?php 
 
 ini_set('display_errors','off');
-  $string= file_get_contents("pop1.json") or die("error");
+  $string= file_get_contents("json/pop1.json") or die("error");
   $json_a = json_decode($string,true);
   $district_array=array_column($json_a,'district');
   $population_array=array_column($json_a,'population');
@@ -119,7 +119,7 @@ fclose($file);
 
 
 </style>
-<div id="wrapper" style="margin-top:40px; align="center"; ">
+<div id="wrapper" style="margin=auto;padding-left:400px;padding-bottom:10px; ">
 
 <script src="d3.min.js"></script>
 <?php if(isset($_POST['submit'])):?>

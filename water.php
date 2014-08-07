@@ -49,7 +49,7 @@ var margin = {top:100, right: 1, bottom:100, left:150};
           .orient("left");
 
 
-d3.json("water1.json", function(error, data){
+d3.json("json/water1.json", function(error, data){
     x.domain([0,d3.max(data, function(d){return d.water;})]);
     y.domain(data.map(function(d){return d.district;}));
 

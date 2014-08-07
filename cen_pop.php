@@ -56,7 +56,7 @@ var margin = {top:100, right: 100, bottom:100, left:150};
         .orient("left");
 
 
-d3.json("central_pop1.json", function(error, data){
+d3.json("json/central_pop1.json", function(error, data){
     x.domain([0,d3.max(data, function(d){return d.population;})]);
     y.domain(data.map(function(d){return d.district;}));
 

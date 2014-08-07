@@ -2,7 +2,7 @@
 <?php
 ini_set('display_errors','off');
 
-	$string = file_get_contents("sanitation1.json") or die ("Error opening file");
+	$string = file_get_contents("json/sanitation1.json") or die ("Error opening file");
 	$json_array = json_decode($string,true);
 	$district_array = array_column($json_array,'district');
 	$sanitation_array = array_column($json_array,'sanitation');
@@ -22,8 +22,9 @@ sort($district_array);
 
 ?>
 
-<html>
-<div id="com" style="margin=auto;padding-left:400px;padding-bottom:10px;">
+
+<div id="mid" style="margin:auto; padding-left:400px;">
+	<html>
 	<body>
 		<form action = '<?php echo $_SERVER['PHP_SELF'];?>' method="post">
 		District 1: <select name="district_name1">
@@ -43,8 +44,9 @@ sort($district_array);
 			<input name="submit" type="submit"/>
 		</form>
 	</body>
-	</div>
+	
 </html>
+</div>
 
 <?php
 	$district1;
@@ -111,7 +113,8 @@ fclose($file);
 
 
 </style>
-<body>
+
+<div id="com" style="margin=auto;padding-left:400px;padding-bottom:10px;">
 <script src="d3.min.js"></script>
 <?php if(isset($_POST['submit'])):?>
 <script>
@@ -135,7 +138,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
    
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#com").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -184,5 +187,6 @@ d3.json("sanit.json",function(error, data) {
 
 
 </script>
+</div>
 <?php endif; ?>
 

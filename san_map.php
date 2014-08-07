@@ -52,7 +52,7 @@ p{
 
 ini_set('display_errors','off');
 
-  $string = file_get_contents("sanitation1.json") or die ("Error opening file");
+  $string = file_get_contents("json/sanitation1.json") or die ("Error opening file");
   $json_array = json_decode($string,true);
   $district_array = array_column($json_array,'district');
   $sanitation_array = array_column($json_array,'sanitation');
@@ -120,7 +120,7 @@ var svg = d3.select("#map").append("svg")
   
 
 
-d3.json("nepal-topo.json", function(error, nepal) {
+d3.json("json/nepal-topo.json", function(error, nepal) {
  	g.selectAll("path")
  		.data(topojson.feature(nepal, nepal.objects.nepal).features)
  		.enter()
