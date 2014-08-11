@@ -61,8 +61,7 @@ d3.json("json/midwestern_pop1.json", function(error, data){
     y.domain(data.map(function(d){return d.district;}));
 
     	
-    //var sortOrder = false;
-
+    
     
 
     svg.selectAll("rect")
@@ -70,9 +69,6 @@ d3.json("json/midwestern_pop1.json", function(error, data){
     	.enter()
     	.append("rect")
         .attr("class", "bar")
-    	//.attr("x",function(d){
-    		//return x(d.water supply);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})
@@ -94,19 +90,14 @@ d3.json("json/midwestern_pop1.json", function(error, data){
         .text(function(d) {
             return (d.district) + ": " +(d.population) ;
         });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-   /* svg.selectAll("rect")
-        .data(data)
-        .enter()*/
+        
        
 
     svg.append("g")
     	.attr("class","x axis")
     	.call(xAxis)
         .append("text")
-        .attr("y",-23)
+        .attr("y",-30)
         .attr("x", (w/2))
         .style("text-anchor","end")
         .text("Population");
@@ -117,26 +108,13 @@ d3.json("json/midwestern_pop1.json", function(error, data){
     	.call(yAxis)
         .append("text")
         .attr("transform","rotate(-90)")
-        .attr("x",-400)
+        .attr("x",-100)
         .attr("y", -100)
         .style("text-anchor","end")
         .text("Districts");
 
 
-   /* var sortBars = function(){
-			sortOrder = !sortOrder;
-			svg.selectAll("rect")
-				.sort(function(a,b){
-				return d3.ascending(a, b);
-				   		
-				})
-				.transition()
-				.duration(500)
-				.attr("y", function(d){
-					return x(d.water supply);
-				});
-            	};*/
-
+  
 });
 </script>
 </body>

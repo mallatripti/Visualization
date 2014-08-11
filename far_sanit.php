@@ -30,7 +30,7 @@
 
 var margin = {top:10, right: 10, bottom:100, left:150};
 	var w = 1000-margin.left - margin.right;
-	var h = 300-margin.top - margin.bottom;
+	var h = 250-margin.top - margin.bottom;
 
 
 
@@ -60,19 +60,11 @@ d3.json("json/farwestern_sanit1.json", function(error, data){
     x.domain([0,d3.max(data, function(d){return d.sanitation;})]);
     y.domain(data.map(function(d){return d.district;}));
 
-    	
-    //var sortOrder = false;
-
     
-
     svg.selectAll("rect")
     	.data(data)
     	.enter()
     	.append("rect")
-        //.attr("class", "bar")
-    	//.attr("x",function(d){
-    		//return x(d.water supply);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})
@@ -94,13 +86,7 @@ d3.json("json/farwestern_sanit1.json", function(error, data){
         .text(function(d) {
             return (d.district) + ": " +(d.sanitation) ;
         });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-   /* svg.selectAll("rect")
-        .data(data)
-        .enter()*/
-       
+              
 
     svg.append("g")
     	.attr("class","x axis")
@@ -117,25 +103,11 @@ d3.json("json/farwestern_sanit1.json", function(error, data){
     	.call(yAxis)
         .append("text")
         .attr("transform","rotate(-90)")
-        .attr("x",-400)
+        .attr("x",-50)
         .attr("y", -100)
         .style("text-anchor","end")
         .text("Districts");
 
-
-   /* var sortBars = function(){
-			sortOrder = !sortOrder;
-			svg.selectAll("rect")
-				.sort(function(a,b){
-				return d3.ascending(a, b);
-				   		
-				})
-				.transition()
-				.duration(500)
-				.attr("y", function(d){
-					return x(d.water supply);
-				});
-            	};*/
 
 });
 </script>

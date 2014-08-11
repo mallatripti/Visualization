@@ -30,7 +30,7 @@
 
 var margin = {top:10, right: 10, bottom:100, left:150};
 	var w = 1000-margin.left - margin.right;
-	var h = 400-margin.top - margin.bottom;
+	var h = 350-margin.top - margin.bottom;
 
 
 
@@ -61,7 +61,7 @@ d3.json("json/western_pop1.json", function(error, data){
     y.domain(data.map(function(d){return d.district;}));
 
     	
-    //var sortOrder = false;
+    
 
     
 
@@ -70,9 +70,6 @@ d3.json("json/western_pop1.json", function(error, data){
     	.enter()
     	.append("rect")
         .attr("class", "bar")
-    	//.attr("x",function(d){
-    		//return x(d.water supply);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})
@@ -94,19 +91,14 @@ d3.json("json/western_pop1.json", function(error, data){
         .text(function(d) {
             return (d.district) + ": " +(d.population) ;
         });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-   /* svg.selectAll("rect")
-        .data(data)
-        .enter()*/
+       
        
 
     svg.append("g")
     	.attr("class","x axis")
     	.call(xAxis)
         .append("text")
-        .attr("y",-23)
+        .attr("y",-26)
         .attr("x", (w/2))
         .style("text-anchor","end")
         .text("Population");
@@ -117,25 +109,13 @@ d3.json("json/western_pop1.json", function(error, data){
     	.call(yAxis)
         .append("text")
         .attr("transform","rotate(-90)")
-        .attr("x",-200)
+        .attr("x",-100)
         .attr("y", -100)
         .style("text-anchor","end")
         .text("Districts");
 
 
-   /* var sortBars = function(){
-			sortOrder = !sortOrder;
-			svg.selectAll("rect")
-				.sort(function(a,b){
-				return d3.ascending(a, b);
-				   		
-				})
-				.transition()
-				.duration(500)
-				.attr("y", function(d){
-					return x(d.water supply);
-				});
-            	};*/
+   
 
 });
 </script>

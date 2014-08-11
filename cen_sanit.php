@@ -36,7 +36,7 @@
 
 var margin = {top:100, right: 1, bottom:100, left:150};
     var w = 1200-margin.left - margin.right;
-    var h = 600-margin.top - margin.bottom;
+    var h = 550-margin.top - margin.bottom;
 
 
 
@@ -67,7 +67,7 @@ d3.json("json/central_sanit1.json", function(error, data){
     y.domain(data.map(function(d){return d.district;}));
 
         
-    //var sortOrder = false;
+    
 
     
 
@@ -75,9 +75,6 @@ d3.json("json/central_sanit1.json", function(error, data){
         .data(data)
         .enter()
         .append("rect")
-        //.attr("x",function(d){
-            //return x(d.population);
-        //})
         .attr("y", function(d){
             return y(d.district)
         })
@@ -99,10 +96,7 @@ d3.json("json/central_sanit1.json", function(error, data){
             .text(function(d) {
                 return (d.district) + ": " +(d.sanitation) ;
             });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-
+        
     svg.append("g")
         .attr("class","x axis")
         .call(xAxis)
@@ -118,26 +112,13 @@ d3.json("json/central_sanit1.json", function(error, data){
         .call(yAxis)
         .append("text")
         .attr("transform","rotate(-90)")
-        .attr("x",-200)
+        .attr("x",-140)
         .attr("y", -100)
         .style("text-anchor","end")
         .text("Districts");
 
 
-   /* var sortBars = function(){
-            sortOrder = !sortOrder;
-            svg.selectAll("rect")
-                .sort(function(a,b){
-                return d3.ascending(a, b);
-                        
-                })
-                .transition()
-                .duration(500)
-                .attr("y", function(d){
-                    return x(d.population);
-                });
-                };*/
-
+   
 });
 </script>
 
