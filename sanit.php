@@ -23,7 +23,7 @@
 
 var margin = {top:100, right: 1, bottom:100, left:150};
 	var w = 1200-margin.left - margin.right;
-	var h = 1400-margin.top - margin.bottom;
+	var h = 1000-margin.top - margin.bottom;
 
 
 
@@ -52,44 +52,34 @@ var margin = {top:100, right: 1, bottom:100, left:150};
 d3.json("json/sanitation1.json", function(error, data){
     x.domain([0,d3.max(data, function(d){return d.sanitation;})]);
     y.domain(data.map(function(d){return d.district;}));
-
-    	
-    //var sortOrder = false;
-
-    
+   
 
     svg.selectAll("rect")
     	.data(data)
     	.enter()
     	.append("rect")
-    	//.attr("x",function(d){
-    		//return x(d.population);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})
     	.attr("height", y.rangeBand())
     	.attr("width", function(d){return x(d.sanitation); })
-    	.attr("fill", "steelblue")
+    	.attr("fill", "MediumAquaMarine")
     	
         .on("mouseover", function() {
         	d3.select(this)
-          	 .attr("fill", "red");
+          	 .attr("fill", "DarkSlateGray");
 					})
         .on("mouseout", function(d) {
         	d3.select(this)
         		.transition()
         		.duration(150)
-        		.attr("fill", "rgb(0, 102, " + x(d.sanitation) + ")");
+        		.attr("fill", "MediumAquaMarine");
 						})
         .append("title")
             .text(function(d) {
                 return (d.district) + ": " +(d.sanitation) ;
             });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-
+        
     svg.append("g")
     	.attr("class","x axis")
     	.call(xAxis)
@@ -110,20 +100,6 @@ d3.json("json/sanitation1.json", function(error, data){
         .style("text-anchor","end")
         .text("Districts");
 
-
-   /* var sortBars = function(){
-			sortOrder = !sortOrder;
-			svg.selectAll("rect")
-				.sort(function(a,b){
-				return d3.ascending(a, b);
-				   		
-				})
-				.transition()
-				.duration(500)
-				.attr("y", function(d){
-					return x(d.population);
-				});
-            	};*/
 
 });
 </script>

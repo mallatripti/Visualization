@@ -23,7 +23,7 @@
 <script>
 
 var margin = {top:100, right: 100, bottom:100, left:150};
-	var w = 1200-margin.left - margin.right;
+	var w = 1000-margin.left - margin.right;
 	var h = 1200-margin.top - margin.bottom;
 
 
@@ -53,46 +53,34 @@ var margin = {top:100, right: 100, bottom:100, left:150};
 
 d3.json("json/pop1.json", function(error, data){
     x.domain([0,d3.max(data, function(d){return d.population;})]);
-    y.domain(data.map(function(d){return d.district;}));
-
-    	
-    //var sortOrder = false;
-
-    
+    y.domain(data.map(function(d){return d.district;}));   
 
     svg.selectAll("rect")
     	.data(data)
     	.enter()
     	.append("rect")
-    	//.attr("x",function(d){
-    		//return x(d.population);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})
     	.attr("height", y.rangeBand())
     	.attr("width", function(d){return x(d.population); })
-    	.attr("fill", function(d) {  
-        			return "rgb(0,102, " + (d.population) + ")";})
+    	.attr("fill", "MediumAquaMarine")
     	
         .on("mouseover", function() {
         	d3.select(this)
-          	 .attr("fill", "aqua");
+          	 .attr("fill", "DarkSlateGray");
 					})
         .on("mouseout", function(d) {
         	d3.select(this)
         		.transition()
         		.duration(150)
-        		.attr("fill", "rgb(0,102, " + (d.population) + ")");
+        		.attr("fill","MediumAquaMarine" );
 						})
         .append("title")
             .text(function(d) {
                 return (d.district) + ": " +(d.population) ;
             });
-        /*.on("click", function() {
-            sortBars();             
-                        });*/
-
+       
     svg.append("g")
     	.attr("class","x axis")
     	.call(xAxis)
