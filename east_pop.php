@@ -59,22 +59,21 @@ var margin = {top:10, right: 10, bottom:100, left:150};
 
 
 d3.json("json/eastern_pop1.json", function(error, data){
-    x.domain([0,d3.max(data, function(d){return d.population;})]);
-    y.domain(data.map(function(d){return d.district;}));
+    var max=0,i;
+    for(i=0;i<data.length;i++){
+        if(max< +data[i]["population"]){
+            max= +data[i]["population"];
+        }
+    }
 
-    	
-    //var sortOrder = false;
-
-    
+    x.domain([0,max]);
+    y.domain(data.map(function(d){return d.district;}));  
 
     svg.selectAll("rect")
     	.data(data)
     	.enter()
     	.append("rect")
         .attr("class", "bar")
-    	//.attr("x",function(d){
-    		//return x(d.water supply);
-    	//})
     	.attr("y", function(d){
     		return y(d.district)
     	})

@@ -58,7 +58,17 @@ var margin = {top:10, right: 10, bottom:100, left:150};
 
 
 d3.json("json/central_pop1.json", function(error, data){
-    x.domain([0,d3.max(data, function(d){return d.population;})]);
+//console.log(data);
+    var max=0,i;
+    for(i=0;i<data.length;i++){
+        if(max< +data[i]["population"]){
+            max= +data[i]["population"];
+        }
+    }
+
+   // console.log(max);
+
+    x.domain([0,max]);
     y.domain(data.map(function(d){return d.district;}));
 
     	
